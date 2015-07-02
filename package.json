@@ -9,9 +9,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.13.1",
+    "compression": "^1.5.0",
+    "crypto": "0.0.3",
     "express": "^4.13.0",
     "lodash": "^3.10.0",
     "mongodb-rest": "^0.10.13",
-    "mongoose": "^4.0.6"
+    "mongoose": "^4.0.6",
+    "morgan": "^1.6.0",
+    "path": "^0.11.14"
   }
 }
