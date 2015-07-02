@@ -1,0 +1,17 @@
+{
+  "name": "user-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.0",
+    "lodash": "^3.10.0",
+    "mongodb-rest": "^0.10.13",
+    "mongoose": "^4.0.6"
+  }
+}
