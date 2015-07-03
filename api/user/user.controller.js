@@ -6,7 +6,7 @@ var UserApi = require("../userApi/userApi.model");
 
 
 var handleError = function(res, err){
-    return res.json(500, err);
+    return res.json(500, {error:err});
 }
 
 /**
@@ -40,7 +40,7 @@ exports.create = function (req, res, next) {
 
             if (err) return handleError(res, "failed creating users: "+err.message);
 
-            res.json(user._id);
+            res.json({_id: user._id});
 
         });
 

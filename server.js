@@ -19,6 +19,8 @@ if(config.seedDB) { require('./config/seed'); }
 // Setup server
 var app = express();
 
+app.use(morgan('dev'));
+
 app.use(compression());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
