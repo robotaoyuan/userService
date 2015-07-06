@@ -13,7 +13,13 @@ var handleError = function(res, err){
 * Get list of users
 */
 exports.list = function(req, res) {
-    User.find({}, '-salt -hashedPassword -__v', function (err, users) {
+
+    var filter = {};
+    if(req.query && req.query.email){
+        filter.email = req.query.email;
+    }
+
+    User.find(filter, '-__v', function (err, users) {
         if(err) return handleError(res,"failed listing users "+err.message);
         res.json(200, users);
     });
