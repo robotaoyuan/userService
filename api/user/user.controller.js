@@ -67,7 +67,7 @@ exports.get = function (req, res, next) {
 
 
     User
-    .findById(userId, '-salt -hashedPassword -__v')
+    .findById(userId, '-__v')
     .populate('userApi')
     .exec(function (err, user) {
         if (err) return handleError(res,"failed getting specific users " +err.message);
