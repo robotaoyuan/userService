@@ -20,7 +20,9 @@ var UserSchema = new Schema({
     provider: String,
     salt: String,
 
-    userApi: {type: Schema.Types.ObjectId, ref:"UserApi"}
+    userApi: {type: Schema.Types.ObjectId, ref:"UserApi"},
+
+    profileHash: {type:String, default:"Fu3SJoN-tLWV8vMD2_WHnis9bYeM"},
 
 });
 

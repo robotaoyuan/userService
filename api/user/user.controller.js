@@ -88,6 +88,7 @@ exports.delete = function(req, res) {
 
 // Updates an existing user in the DB.
 exports.update = function(req, res) {
+
     if(req.body._id) { delete req.body._id; }
     User.findById(req.params.id, '-salt -hashedPassword -__v',function (err, user) {
 
@@ -98,6 +99,7 @@ exports.update = function(req, res) {
         if(!user) {
             return res.send(404);
         }
+
 
         var updated = _.merge(user, req.body);
         updated.save(function (err) {
