@@ -24,6 +24,14 @@ var UserSchema = new Schema({
 
     profileHash: {type:String, default:"Fu3SJoN-tLWV8vMD2_WHnis9bYeM"},
 
+    verificationToken : String,
+
+    verified : Boolean,
+
+    createdAt : { type : Date, default: Date.now },
+
+    verifiedAt : Date
+
 });
 
 
@@ -40,12 +48,6 @@ UserSchema
     return email.length;
 }, 'Email cannot be blank');
 
-// Validate empty password
-UserSchema
-.path('hashedPassword')
-.validate(function(hashedPassword) {
-    return hashedPassword.length;
-}, 'Password cannot be blank');
 
 // Validate email is not taken
 UserSchema
@@ -65,22 +67,6 @@ UserSchema
 var validatePresenceOf = function(value) {
     return value && value.length;
 };
-
-/**
-* Pre-save hook
-*/
-UserSchema
-.pre('save', function(next) {
-    if (!this.isNew) return next();
-
-    if (!validatePresenceOf(this.hashedPassword)){
-
-        next(new Error('Invalid password'));
-    }
-
-    else
-    next();
-});
 
 
 module.exports = mongoose.model('User', UserSchema);
